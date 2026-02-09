@@ -132,10 +132,11 @@
   .brand{ pointer-events:none; }
   .brand-title{
     font-family: "Sacramento", cursive;
-    font-size: 34px;
+    font-size: 40px;
     line-height:1;
   }
   .brand-subtitle{
+    font-family: "Sacramento", cursive; 
     font-size: 12px;
     color: rgba(108,95,95,.9);
     margin-top:2px;
@@ -318,6 +319,7 @@
     font-size: 18px;
     line-height: 1.45;
     letter-spacing: 0.2px;
+    font-family: "Sacramento", cursive;
   }  
   
   /* On small phones, reduce image height slightly */
