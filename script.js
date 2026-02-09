@@ -71,9 +71,8 @@ gateForm.addEventListener("submit", async (e) => {
     gateError.textContent = "";
     setUnlocked();
 
-    // Try to start music politely (autoplay requires user gesture; this submit counts as one)
-    const saved = localStorage.getItem("music_on_v1");
-    if (saved === "1") await playMusic();
+    // Start music right after unlock (this submit counts as a user gesture)
+    await playMusic();
   } else {
     gateError.textContent = "Nope 😄 Try again.";
     gateInput.focus();
