@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="theme-color" content="#f6e7e7" />
+  <title>For You ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Handwritten romantic + classy serif -->
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Soft grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Floating hearts -->
+  <canvas id="heartsCanvas" aria-hidden="true"></canvas>
+
+  <!-- Gate -->
+  <div id="gate" class="gate">
+    <div class="gate-card">
+      <div class="gate-title">A tiny question first…</div>
+      <div class="gate-question">Which Labubu Variant Did I Get You?</div>
+
+      <form id="gateForm" class="gate-form" autocomplete="off">
+        <input
+          id="gateInput"
+          class="gate-input"
+          type="text"
+          inputmode="text"
+          placeholder="Type your answer…"
+          aria-label="Answer"
+          required
+        />
+        <button class="btn" type="submit">Unlock ❤️</button>
+      </form>
+
+      <div id="gateHint" class="gate-hint">Hint: one word 🙂</div>
+      <div id="gateError" class="gate-error" role="alert" aria-live="polite"></div>
+
+      <div class="gate-footer">
+        <span class="muted">Best viewed with sound on.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-title">Our Story</div>
+      <div class="brand-subtitle">Scroll slowly ✨</div>
+    </div>
+
+    <button id="musicToggle" class="icon-btn" type="button" aria-label="Toggle music">
+      <span class="icon">♫</span>
+      <span id="musicLabel" class="icon-label">Off</span>
+    </button>
+  </header>
+
+  <!-- Intro -->
+  <section class="intro section">
+    <div class="intro-inner">
+      <h1 class="hero">Hi love,</h1>
+      <p class="hero-body">
+        I made you something small, soft, and full of us.
+        <br/>
+        <span class="accent">Scroll to begin.</span>
+      </p>
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="mouse"></div>
+        <div class="arrow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline rail (fixed) -->
+  <div class="timeline-rail" aria-hidden="true">
+    <div class="timeline-line"></div>
+    <div id="timelineDots" class="timeline-dots"></div>
+  </div>
+
+  <!-- Timeline moments (injected by JS) -->
+  <main id="timeline" class="timeline"></main>
+
+  <!-- Audio -->
+  <audio id="bgm" preload="auto" loop>
+    <!-- You will set this path in script.js -->
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

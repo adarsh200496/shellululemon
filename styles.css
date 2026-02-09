@@ -1,0 +1,370 @@
+:root{
+    --bg1:#fff7f7;
+    --bg2:#f6e7e7;
+    --ink:#1f1a1a;
+    --muted:#6c5f5f;
+    --card:#ffffffcc;
+    --shadow: 0 20px 60px rgba(30, 10, 10, .12);
+    --line: rgba(60, 30, 30, .18);
+    --accent:#b5536a;
+  }
+  
+  *{ box-sizing:border-box; }
+  html, body{ height:100%; }
+  body{
+    margin:0;
+    color:var(--ink);
+    background: radial-gradient(1200px 900px at 20% 10%, var(--bg1), transparent 60%),
+                radial-gradient(1100px 800px at 85% 20%, var(--bg2), transparent 55%),
+                linear-gradient(180deg, #fff, var(--bg2));
+    overflow-x:hidden;
+    font-family: "Playfair Display", serif;
+  }
+  
+  /* Grain overlay */
+  .grain{
+    pointer-events:none;
+    position:fixed; inset:0;
+    opacity:.10;
+    background-image:
+      repeating-radial-gradient(circle at 30% 30%, rgba(0,0,0,.06) 0, rgba(0,0,0,.02) 1px, transparent 2px),
+      repeating-radial-gradient(circle at 70% 60%, rgba(0,0,0,.05) 0, rgba(0,0,0,.02) 1px, transparent 3px);
+    mix-blend-mode:multiply;
+    filter: blur(.2px);
+    z-index:1;
+  }
+  
+  /* Hearts canvas sits behind content but above background */
+  #heartsCanvas{
+    position:fixed;
+    inset:0;
+    z-index:2;
+    pointer-events:none;
+  }
+  
+  /* Gate */
+  .gate{
+    position:fixed; inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background: rgba(255, 245, 245, .82);
+    backdrop-filter: blur(10px);
+    z-index: 50;
+  }
+  .gate-card{
+    width:min(520px, 92vw);
+    padding:22px 20px 18px;
+    border-radius:20px;
+    background: rgba(255,255,255,.78);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(120,60,70,.12);
+  }
+  .gate-title{
+    font-family: "Sacramento", cursive;
+    font-size: 42px;
+    line-height:1;
+    margin-bottom:10px;
+  }
+  .gate-question{
+    color:var(--muted);
+    margin-bottom:14px;
+    font-size:16px;
+  }
+  .gate-form{
+    display:flex;
+    gap:10px;
+    align-items:center;
+  }
+  .gate-input{
+    flex:1;
+    padding:12px 14px;
+    border-radius:14px;
+    border:1px solid rgba(120,60,70,.18);
+    background: rgba(255,255,255,.9);
+    outline:none;
+    font-size:16px;
+  }
+  .gate-input:focus{
+    border-color: rgba(181,83,106,.45);
+    box-shadow: 0 0 0 4px rgba(181,83,106,.12);
+  }
+  .btn{
+    padding:12px 14px;
+    border-radius:14px;
+    border:1px solid rgba(181,83,106,.35);
+    background: linear-gradient(180deg, rgba(181,83,106,.18), rgba(181,83,106,.08));
+    cursor:pointer;
+    font-weight:600;
+  }
+  .btn:active{ transform: translateY(1px); }
+  .gate-hint{
+    margin-top:10px;
+    color: rgba(108,95,95,.85);
+    font-size: 13px;
+  }
+  .gate-error{
+    margin-top:10px;
+    color:#8b2f3f;
+    font-size: 13px;
+    min-height: 18px;
+  }
+  .gate-footer{
+    margin-top:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .muted{ color: rgba(108,95,95,.9); font-size:13px; }
+  
+  /* Top bar */
+  .topbar{
+    position:fixed;
+    top:0; left:0; right:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 14px 16px;
+    z-index: 10;
+    pointer-events:none;
+  }
+  .brand{ pointer-events:none; }
+  .brand-title{
+    font-family: "Sacramento", cursive;
+    font-size: 34px;
+    line-height:1;
+  }
+  .brand-subtitle{
+    font-size: 12px;
+    color: rgba(108,95,95,.9);
+    margin-top:2px;
+  }
+  .icon-btn{
+    pointer-events:auto;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border-radius: 999px;
+    border:1px solid rgba(120,60,70,.14);
+    background: rgba(255,255,255,.55);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(30,10,10,.08);
+    cursor:pointer;
+  }
+  .icon{ font-size:16px; }
+  .icon-label{ font-size:12px; color: rgba(108,95,95,.95); }
+  
+  /* Sections */
+  .section{
+    min-height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 96px 18px 40px; /* top space for fixed header */
+    position:relative;
+    z-index: 5;
+  }
+  .intro-inner{
+    width:min(900px, 92vw);
+    text-align:center;
+    padding: 28px 20px;
+  }
+  .hero{
+    font-family: "Sacramento", cursive;
+    font-size: clamp(52px, 7vw, 84px);
+    margin: 0 0 6px;
+  }
+  .hero-body{
+    margin: 0;
+    font-size: clamp(16px, 2.4vw, 22px);
+    color: rgba(31,26,26,.85);
+  }
+  .accent{ color: var(--accent); }
+  
+  .scroll-indicator{
+    margin: 22px auto 0;
+    width: 40px;
+    opacity:.7;
+  }
+  .mouse{
+    height: 44px;
+    width: 28px;
+    border-radius: 999px;
+    border: 1px solid rgba(60,30,30,.25);
+    margin:0 auto 8px;
+    position:relative;
+  }
+  .mouse::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:12px;
+    width:4px;
+    height:4px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    background: rgba(60,30,30,.35);
+    animation: dot 1.6s infinite;
+  }
+  .arrow{
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid rgba(60,30,30,.28);
+    border-bottom: 2px solid rgba(60,30,30,.28);
+    transform: rotate(45deg);
+    margin: 0 auto;
+    animation: bounce 1.6s infinite;
+  }
+  @keyframes dot{
+    0%, 100% { transform: translate(-50%, 0); opacity:.35; }
+    50% { transform: translate(-50%, 10px); opacity:.8; }
+  }
+  @keyframes bounce{
+    0%, 100% { transform: translateY(0) rotate(45deg); opacity:.35; }
+    50% { transform: translateY(6px) rotate(45deg); opacity:.8; }
+  }
+  
+  /* Timeline rail */
+  .timeline-rail{
+    position:fixed;
+    left: 16px;
+    top: 90px;
+    bottom: 28px;
+    width: 22px;
+    z-index: 6;
+    pointer-events:none;
+    display:none;
+  }
+  @media (min-width: 520px){
+    .timeline-rail{ display:block; }
+  }
+  .timeline-line{
+    position:absolute;
+    left: 10px;
+    top:0; bottom:0;
+    width:2px;
+    background: linear-gradient(180deg, transparent, var(--line), transparent);
+  }
+  .timeline-dots{
+    position:absolute;
+    left: 2px;
+    top: 0;
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+    padding-top: 6px;
+  }
+  .dot{
+    width:18px; height:18px;
+    border-radius: 50%;
+    border: 1px solid rgba(120,60,70,.22);
+    background: rgba(255,255,255,.6);
+    box-shadow: 0 10px 20px rgba(30,10,10,.07);
+  }
+  .dot.active{
+    background: rgba(181,83,106,.24);
+    border-color: rgba(181,83,106,.55);
+  }
+  
+  /* Moments */
+  .timeline{ z-index:5; position:relative; }
+  
+  .moment{
+    width:min(980px, 94vw);
+    margin: 0 auto;
+    display:grid;
+    grid-template-rows: auto auto;
+    gap: 16px;
+    opacity:0;
+    transform: translateY(24px);
+    filter: blur(2px);
+    transition: opacity 650ms ease, transform 650ms ease, filter 650ms ease;
+  }
+  .moment.reveal{
+    opacity:1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  
+  .card{
+    background: rgba(255,255,255,.72);
+    border: 1px solid rgba(120,60,70,.12);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    overflow:hidden;
+  }
+  
+  .photo{
+    width:100%;
+    height: min(64vh, 620px);
+    object-fit: cover;
+    display:block;
+  }
+  
+  .caption{
+    padding: 18px 18px 16px;
+  }
+  .date{
+    font-family: "Sacramento", cursive;
+    font-size: 36px;
+    margin: 0 0 6px;
+    color: rgba(31,26,26,.92);
+  }
+  .text{
+    margin: 0;
+    color: rgba(31,26,26,.78);
+    font-size: 18px;
+    line-height: 1.45;
+    letter-spacing: 0.2px;
+  }  
+  
+  /* On small phones, reduce image height slightly */
+  @media (max-width: 420px){
+    .photo{ height: 58vh; }
+    .date{ font-size: 32px; }
+    .text{ font-size: 16px; }
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  .end-card{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height: min(70vh, 560px);
+    background: radial-gradient(900px 500px at 30% 20%, rgba(181,83,106,.10), transparent 60%),
+                radial-gradient(900px 500px at 70% 80%, rgba(181,83,106,.08), transparent 60%),
+                rgba(255,255,255,.72);
+  }
+  
+  .end-inner{
+    padding: 28px 22px 24px;
+    text-align:center;
+    width: min(720px, 92vw);
+  }
+  
+  .end-title{
+    font-family: "Sacramento", cursive;
+    font-size: clamp(54px, 7vw, 92px);
+    line-height: 1;
+    margin-bottom: 10px;
+    color: rgba(31,26,26,.95);
+  }
+  
+  .end-text{
+    font-size: clamp(16px, 2.6vw, 22px);
+    color: rgba(31,26,26,.78);
+    line-height: 1.55;
+  }
+  
+  .end-heart{
+    margin-top: 14px;
+    font-size: 28px;
+    opacity: .9;
+  }
+  
