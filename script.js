@@ -117,23 +117,63 @@ function buildTimeline() {
           <div class="end-heart">❤️</div>
         </div>
       `;
+    // } else {
+    //   const img = document.createElement("img");
+    //   img.className = "photo";
+    //   img.loading = "lazy";
+    //   img.decoding = "async";
+    //   img.src = m.img;
+    //   img.alt = `Memory ${idx + 1}`;
+  
+    //   const caption = document.createElement("div");
+    //   caption.className = "caption";
+    //   caption.innerHTML = `
+    //     <h2 class="date">${escapeHtml(m.date)}</h2>
+    //     <p class="text">${escapeHtml(m.caption)}</p>
+    //   `;
+  
+    //   card.appendChild(img);
+    //   card.appendChild(caption);
+    // }
+
     } else {
-      const img = document.createElement("img");
-      img.className = "photo";
-      img.loading = "lazy";
-      img.decoding = "async";
-      img.src = m.img;
-      img.alt = `Memory ${idx + 1}`;
-  
-      const caption = document.createElement("div");
-      caption.className = "caption";
-      caption.innerHTML = `
-        <h2 class="date">${escapeHtml(m.date)}</h2>
-        <p class="text">${escapeHtml(m.caption)}</p>
-      `;
-  
-      card.appendChild(img);
-      card.appendChild(caption);
+        // Use portrait by default (mobile), and a landscape variant on wider screens
+        const picture = document.createElement("picture");
+
+        // "assets/photos/1.jpg" -> "assets/photos/1.landscape.jpg"
+        const landscapeSrc = m.img.replace(/(\.\w+)$/, ".landscape$1");
+
+        const source = document.createElement("source");
+        source.media = "(min-width: 768px)";
+        source.srcset = landscapeSrc;
+
+        const img = document.createElement("img");
+        img.className = "photo";
+        img.loading = "lazy";
+        img.decoding = "async";
+        img.src = m.img; // mobile/default
+        img.alt = `Memory ${idx + 1}`;
+
+        picture.appendChild(source);
+        picture.appendChild(img);
+
+        // Caption (DOM-safe; no innerHTML)
+        const captionEl = document.createElement("div");
+        captionEl.className = "caption";
+
+        const dateEl = document.createElement("h2");
+        dateEl.className = "date";
+        dateEl.textContent = m.date ?? "";
+
+        const textEl = document.createElement("p");
+        textEl.className = "text";
+        textEl.textContent = m.caption ?? "";
+
+        captionEl.appendChild(dateEl);
+        captionEl.appendChild(textEl);
+
+        card.appendChild(picture);
+        card.appendChild(captionEl);
     }
   
     wrap.appendChild(card);
