@@ -13,23 +13,23 @@ const MUSIC_SRC = "assets/music/song.mp3";
 // Tip: name photos 01.jpg, 02.jpg ...
 const moments = [
   // Example entries — replace with yours:
-  { date: "Apr 11, 2024", caption: "Sneak peak at our first actual date!", img: "assets/photos/1.jpg" },
-  { date: "Apr 30, 2024", caption: "Here's to trying out more weird food in our future!", img: "assets/photos/2.jpg" },
-  { date: "May 4, 2024", caption: "Wishing you a life full of friends, sunshine, and the shore!", img: "assets/photos/3.jpg" },
-  { date: "Jun 8, 2024", caption: "Our first corporate outing together!", img: "assets/photos/4.jpg" },
-  { date: "Jun 22, 2024", caption: "Looking forward to many, many cute candids together!", img: "assets/photos/5.jpg" },
-  { date: "Sep 8, 2024", caption: "Let's try and not be SALTY in life!", img: "assets/photos/6.jpg" },
-  { date: "Oct 16, 2024", caption: "Super-exciting and creative Groupon together!", img: "assets/photos/7.jpg" },
-  { date: "Oct 20, 2024", caption: "First overnight trip of ours to Yosemite!", img: "assets/photos/8.jpg" },
-  { date: "Jan 16, 2025", caption: "One of many fancy-schmancy dates of ours!", img: "assets/photos/9.jpg" },
-  { date: "Jun 1, 2025", caption: "Praying for a lifetime of you not getting seasick!", img: "assets/photos/10.jpg" },
-  { date: "Dec 26, 2025", caption: "No one has looked cuter than us in our onesies!", img: "assets/photos/11.jpg" },
-  { date: "Jan 10, 2026", caption: "Finally, here's to seeing you again super-duper soon!", img: "assets/photos/12.jpg" },
+  { date: "Apr 11, 2024", caption: "Sneak peak at our first actual date! Remember the photographer and the polaroid?", img: "assets/photos/1.jpg" },
+  { date: "Apr 30, 2024", caption: "Here's to trying out more weird food in the future! (Hopefully tastier than this)", img: "assets/photos/2.jpg" },
+  { date: "May 4, 2024",  caption: "Wishing you a life full of amazing friends, toasty sunshine, and peaceful beaches!", img: "assets/photos/3.jpg" },
+  { date: "Jun 8, 2024",  caption: "The place that provided us plenty of nourishment during our tough and busy times!", img: "assets/photos/4.jpg" },
+  { date: "Jun 22, 2024", caption: "Looking forward to many, many cute candids together! Now, my happy place as well!", img: "assets/photos/5.jpg" },
+  { date: "Sep 8, 2024",  caption: "Life is too short to be salty! Let's be our best versions for each other, everyday!", img: "assets/photos/6.jpg" },
+  { date: "Oct 16, 2024", caption: "Super-exciting and creative Groupon together! Next up, a very relaxing massage!", img: "assets/photos/7.jpg" },
+  { date: "Oct 20, 2024", caption: "First trip together to Yosemite! Absolutely stunning! (You're prettier, though)", img: "assets/photos/8.jpg" },
+  { date: "Jan 16, 2025", caption: "One of many fancy-schmancy dates of ours! We will explore more very, very soon!", img: "assets/photos/9.jpg" },
+  { date: "Jun 1, 2025",  caption: "Praying for a lifetime of not getting seasick! We have to do the 274-day cruise!", img: "assets/photos/10.jpg" },
+  { date: "Dec 26, 2025", caption: "No one has looked cuter than us in our onesies! I'm officially a onesie guy now!", img: "assets/photos/11.jpg" },
+  { date: "Jan 10, 2026", caption: "Finally, here's to seeing you super-duper soon! God always answers earnest prayers!", img: "assets/photos/12.jpg" },
   // End card (no image)
   {
     type: "end",
     title: "Happy Valentine's Day, Shellu!",
-    caption: "Looking forward to making some great memories in the future!"
+    caption: "Looking forward to making some great memories with you in the future!"
   }
 ];
 
@@ -117,25 +117,6 @@ function buildTimeline() {
           <div class="end-heart">❤️</div>
         </div>
       `;
-    // } else {
-    //   const img = document.createElement("img");
-    //   img.className = "photo";
-    //   img.loading = "lazy";
-    //   img.decoding = "async";
-    //   img.src = m.img;
-    //   img.alt = `Memory ${idx + 1}`;
-  
-    //   const caption = document.createElement("div");
-    //   caption.className = "caption";
-    //   caption.innerHTML = `
-    //     <h2 class="date">${escapeHtml(m.date)}</h2>
-    //     <p class="text">${escapeHtml(m.caption)}</p>
-    //   `;
-  
-    //   card.appendChild(img);
-    //   card.appendChild(caption);
-    // }
-
     } else {
         // Use portrait by default (mobile), and a landscape variant on wider screens
         const picture = document.createElement("picture");
