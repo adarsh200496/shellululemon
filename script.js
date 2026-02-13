@@ -13,16 +13,16 @@ const MUSIC_SRC = "assets/music/song.mp3";
 const moments = [
   // Example entries — replace with yours:
   { date: "Apr 11, 2024", caption: "Sneak peak at our first date!", img: "assets/photos/1.jpg" },
-  { date: "Apr 30, 2024", caption: "Here's to trying out more weird food in the future!", img: "assets/photos/2.jpg" },
-  { date: "May 4, 2024",  caption: "Wishing you a life of amazing friends, and beaches!", img: "assets/photos/3.jpg" },
+  { date: "Apr 30, 2024", caption: "Here's to trying out more weird food!", img: "assets/photos/2.jpg" },
+  { date: "May 4, 2024",  caption: "Cherish amazing friends, and pretty beaches!", img: "assets/photos/3.jpg" },
   { date: "Jun 8, 2024",  caption: "Source of tasty nourishment during our busy times!", img: "assets/photos/4.jpg" },
-  { date: "Jun 22, 2024", caption: "Absolutely love our cute candids together!", img: "assets/photos/5.jpg" },
+  { date: "Jun 22, 2024", caption: "Absolutely love our cute candids!", img: "assets/photos/5.jpg" },
   { date: "Sep 8, 2024",  caption: "Life's too short to be salty!", img: "assets/photos/6.jpg" },
   { date: "Oct 16, 2024", caption: "Super-exciting Groupon together!", img: "assets/photos/7.jpg" },
   { date: "Oct 20, 2024", caption: "Our first trip together to Yosemite!", img: "assets/photos/8.jpg" },
   { date: "Jan 16, 2025", caption: "One of our many fancy dates!", img: "assets/photos/9.jpg" },
   { date: "Jun 1, 2025",  caption: "Bigger and better cruises await!", img: "assets/photos/10.jpg" },
-  { date: "Dec 26, 2025", caption: "No one has ever looked cuter in onesies!", img: "assets/photos/11.jpg" },
+  { date: "Dec 26, 2025", caption: "No one looks cuter in onesies!", img: "assets/photos/11.jpg" },
   { date: "Jan 10, 2026", caption: "Here's to seeing you super soon!", img: "assets/photos/12.jpg" },
   // End card (no image)
   {
