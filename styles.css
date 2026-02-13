@@ -278,16 +278,23 @@
     display:grid;
     grid-template-rows: auto auto;
     gap: 16px;
-    opacity:0;
-    transform: translateY(24px);
-    filter: blur(2px);
-    transition: opacity 650ms ease, transform 650ms ease, filter 650ms ease;
+  
+    opacity: 0.001;
+    transform: translateY(28px) scale(0.985);
+    filter: blur(1.2px);
+  
+    will-change: opacity, transform, filter;
+    transition:
+      opacity 900ms cubic-bezier(.2,.8,.2,1),
+      transform 900ms cubic-bezier(.2,.8,.2,1),
+      filter 900ms cubic-bezier(.2,.8,.2,1);
   }
+  
   .moment.reveal{
-    opacity:1;
-    transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0) scale(1);
     filter: blur(0);
-  }
+  }  
   
   .card{
     background: rgba(255,255,255,.72);

@@ -56,12 +56,11 @@ document.querySelector(".gate-question").textContent = GATE_QUESTION;
 const STORAGE_KEY = "valentine_unlocked_v1";
 
 function setUnlocked() {
-  localStorage.setItem(STORAGE_KEY, "1");
   gate.style.display = "none";
 }
 
 function isUnlocked() {
-  return localStorage.getItem(STORAGE_KEY) === "1";
+  return false;
 }
 
 gateForm.addEventListener("submit", async (e) => {
@@ -80,9 +79,9 @@ gateForm.addEventListener("submit", async (e) => {
   }
 });
 
-// Show gate unless unlocked
-if (isUnlocked()) gate.style.display = "none";
-else gateInput.focus();
+// Always show gate on load
+gate.style.display = "flex";
+gateInput.focus();
 
 // ============================
 // 3) BUILD TIMELINE (one moment per screen)
@@ -170,7 +169,8 @@ const io = new IntersectionObserver((entries) => {
     }
   }
 }, {
-  threshold: 0.40,
+    threshold: 0.12,
+    rootMargin: "0px 0px -10% 0px",    
 });
 
 momentsEls().forEach(el => io.observe(el));
